@@ -1,0 +1,38 @@
+* { 
+    font-family: -apple-system, BlinkMacSystemFont,
+    “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
+    “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+    sans-serif;
+
+    background-color: #000;
+}
+
+img {
+  /*  height: 110px;
+    width: 200px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+h1 {
+    color: white;
+}
+
+.row {
+    padding: 10px;
+}
+
+#battleground {
+    padding-top: 90px;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.shown {
+    opacity: 1;
+}

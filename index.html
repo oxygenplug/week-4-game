@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star Wars RPG</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./assets/javascript/game.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="header text-center">
+            <div class="row text-center">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <h1>Star Wars RPG</h1>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div id="character-select">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    <img src="./assets/images/rey.jpg" alt="..." class="img-thumbnail img-fluid mx-auto">
+                </div>
+                <div class="col-md-2">
+                    <img src="./assets/images/kyloRen.jpg" alt="..." class="img-thumbnail img-fluid mx-auto">
+                </div>
+                <div class="col-md-2">
+                    <img src="./assets/images/darthMaul.png" alt="..." class="img-thumbnail img-fluid mx-auto">
+                </div>
+                <div class="col-md-2">
+                    <img src="./assets/images/vader.jpg" alt="..." class="img-thumbnail img-fluid mx-auto">
+                </div>
+                <div class="col-md-2"></div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2 text-center">
+                    <button type="button" class="btn btn-outline-light mx-auto" id="rey-btn">Rey</button>
+                </div>
+                <div class="col-md-2 text-center">
+                    <button type="button" class="btn btn-outline-light mx-auto" id="kylo-btn">Kylo Ren</button>
+                </div>
+                <div class="col-md-2 text-center">
+                    <button type="button" class="btn btn-outline-light mx-auto" id="maul-btn">Darth Maul</button>
+                </div>
+                <div class="col-md-2 text-center">
+                    <button type="button" class="btn btn-outline-light mx-auto" id="vader-btn">Darth Vader</button>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <div class="container" id="battleground">
+            <div class="row">
+                <div class="col-md-4" id="player"></div>
+                <div class="col-md-4 text-center"><h1 class="hidden">VS</h1></div>
+                <div class="col-md-4" id="enemy"></div>
+            </div>
+
+        </div>
+
+        <div class="container enemiesRemaining">
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
