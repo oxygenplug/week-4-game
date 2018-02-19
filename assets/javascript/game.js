@@ -9,8 +9,8 @@ $(document).ready(function () {
         hp: 120,
         atk: 10,
         counterAtk: 7,
-        isEnemy = true,
-        isDefeated = false,
+        isEnemy: true,
+        isDefeated: false,
         attack: function () {
             if (isEnemy) {
                 hero.hp  = hero.hp - this.counterAtk;
@@ -35,6 +35,8 @@ $(document).ready(function () {
         hp: 80,
         atk: 18,
         counterAtk: 12,
+        isEnemy: true,
+        isDefeated: false,
         attack: function () {
             if (isEnemy) {
                 hero.hp  = hero.hp - this.counterAtk;
@@ -57,6 +59,8 @@ $(document).ready(function () {
         hp: 100,
         atk: 11,
         counterAtk: 9,
+        isEnemy: true,
+        isDefeated: false,
         attack: function () {
             if (isEnemy) {
                 hero.hp  = hero.hp - this.counterAtk;
@@ -79,6 +83,8 @@ $(document).ready(function () {
         hp: 60,
         atk: 20,
         counterAtk: 15,
+        isEnemy: true,
+        isDefeated: false,
         attack: function () {
             if (isEnemy) {
                 hero.hp  = hero.hp - this.counterAtk;
