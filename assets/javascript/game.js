@@ -11,6 +11,10 @@ $(document).ready(function () {
         counterAtk: 7,
         isEnemy: true,
         isDefeated: false,
+
+        /* attack function. first checks to see if the character selected is an enemy. if it's an enemy, their attack type used will be the counter attack.
+        if they are not the enemy, it means they are the hero and that they can use the regular attack that grows in power each time it is used */
+
         attack: function () {
             if (isEnemy) {
                 hero.hp  = hero.hp - this.counterAtk;
@@ -103,13 +107,15 @@ $(document).ready(function () {
         },
     };
 
-    // click event for hero selection
-    $("#rey-btn").click(function() {
+    // click event for hero selection. clicking the button should assign the char obj to a var of either hero or enemy
+    $("#rey-btn").on("click", function() {
         if (hero = undefined) {
             hero = rey;
+            console.log(hi)
         }
         else {
             enemy = rey;
+            rey.isEnemy = true;
         };
     })
 
@@ -119,6 +125,7 @@ $(document).ready(function () {
         }
         else {
             enemy = kylo;
+            kylo.isEnemy = true;
         };
     })
 
@@ -127,7 +134,8 @@ $(document).ready(function () {
             hero = maul;
         }
         else {
-            enemy = maul;
+            enemy = maul
+            maul.isEnemy = true;
         };
     })
 
@@ -137,6 +145,7 @@ $(document).ready(function () {
         }
         else {
             enemy = vader;
+            vader.isEnemy = true;
         };
     })
 
