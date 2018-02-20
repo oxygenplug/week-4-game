@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 // set up character objs
 
-    var rey = {
+     var rey = {
         hp: 120,
         atk: 10,
         counterAtk: 7,
@@ -15,14 +15,9 @@ $(document).ready(function () {
         /* attack function. first checks to see if the character selected is an enemy. if it's an enemy, their attack type used will be the counter attack.
         if they are not the enemy, it means they are the hero and that they can use the regular attack that grows in power each time it is used */
 
-        attack: function () {
-            if (isEnemy) {
-                hero.hp  = hero.hp - this.counterAtk;
-            }
-
-            else {
-                enemy.hp = enemy.hp - this.atk; 
-            };
+        attack: function (enemy) {
+            
+            enemy.hp -= this.atk;
 
         },
 
