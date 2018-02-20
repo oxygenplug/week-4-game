@@ -69,16 +69,59 @@
         </div>
 
         <!--This div will contain the pictures for the hero the player chose and the enemy they are currently playing against along with hp and attk info  -->
-        <div class="container" id="battleground">
-            <div class="row">
-                <div class="col-md-4" id="player"></div>
-                <div class="col-md-4 text-center">
-                    <h1 class="hidden">VS</h1>
+        <div id="battleground">
+            <div id="character-select">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">
+                        <img src="" alt="..." class="img-thumbnail img-fluid mx-auto hidden" id="left-img">
+                    </div>
+                    <div class="col-md-2">
+                       
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                    <div class="col-md-2">
+                        <img src="" alt="..." class="img-thumbnail img-fluid mx-auto hidden" id="right-img">
+                    </div>
+                    <div class="col-md-2"></div>
+    
                 </div>
-                <div class="col-md-4" id="enemy"></div>
+                <!--This div contains the buttons that the player can click to actually choose their hero and enemy -->
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2 text-center">
+                        <button type="button" class="btn btn-outline-light mx-auto hidden" id="left-name">HP: </button>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        
+                    </div>
+                    <div class="col-md-2 text-center">
+                       
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <button type="button" class="btn btn-outline-light mx-auto hidden" id="right-name">HP: </button>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2 text-center">
+                        <button type="button" class="btn btn-outline-light mx-auto Attack" id="attack-btn">Attack</button>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        
+                    </div>
+                    <div class="col-md-2 text-center">
+                       
+                    </div>
+                    <div class="col-md-2 text-center">
+                       
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
             </div>
-
-        </div>
 
         <div class="container enemiesRemaining">
 
