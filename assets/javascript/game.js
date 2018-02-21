@@ -25,7 +25,7 @@ $(document).ready(function () {
             }
         };
     }
-
+// for some reason I can't get the name and imgURL to pass through. they come up as empty strings.
     var rey = new Character(120, 10, 7, "Rey", "../images/rey.jpg");
     var kylo = new Character(100, 11, 9, "Kylo Ren", "../images/kyloRen.jpg");
     var maul = new Character(60, 20, 15, "Darth Maul", "../images/darthMaul.png");
@@ -51,11 +51,12 @@ $(document).ready(function () {
             }
     };  */
 
-  //  var battle = new Battle(left, right);
-  //  battle.start();
+  /* CURRENTLY NOT WORKING
+    var battle = new Battle(left, right);
+    battle.start();
+*/
 
-
-    // click event for hero selection. clicking the button should assign the char obj to a var of either hero or enemy
+    // click event for hero selection. clicking the button should assign the char  to a var of either hero or enemy
     $("#rey-btn").on("click", function () {
         if (!hero) {
             hero = rey;
