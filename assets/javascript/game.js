@@ -32,7 +32,9 @@ $(document).ready(function () {
     var vader = new Character(80, 18, 10, "Darth Vader", "../images/vader.jpg");
 
 
-    function Battle(hero, enemy) {
+    // this part would handle the entire "battle" set up sequence, such as dynamically displaying the player and current enemy's images
+
+  /*  function Battle(left, right) {
         this.left = hero;
         this.right = enemy;
         this.start = function (left, right) {
@@ -47,10 +49,10 @@ $(document).ready(function () {
                 $('#right-img').attr('src', this.right.imgURL)
                 $('#right-name').text(this.right.name)
             }
-    }
+    };  */
 
-    var battle = new Battle(hero, enemy);
-    battle.start();
+  //  var battle = new Battle(left, right);
+  //  battle.start();
 
 
     // click event for hero selection. clicking the button should assign the char obj to a var of either hero or enemy
@@ -98,9 +100,11 @@ $(document).ready(function () {
         };
     })
 
-
+/* calls the attack function from the Character constructor. this function first checks to see
+ if a character is the player or an enemy then peforms either a attack or counter attack
+ and subtracts that from the other character's hp pool */
     $("#attack-btn").on("click", function() {
-
+        Character.attack();
     });
 
 
