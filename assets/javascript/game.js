@@ -1,5 +1,6 @@
+// made by Dan Garces
 $(document).ready(function () {
-
+    // constructor for characters so i dont have a bunch of objects I have to create manually
     function Character(hp, atk, counterAtk, name, imgURL) {
         this.hp = hp;
         this.atk = atk;
@@ -33,7 +34,7 @@ $(document).ready(function () {
 
         };
     }
-    // for some reason I can't get the name and imgURL to pass through. they come up as empty strings.
+    // creates the characters
     var createCharacters = function () {
         rey = new Character(130, 10, 4, "Rey", "rey.jpg");
         kylo = new Character(110, 11, 6, "Kylo Ren", "kyloRen.jpg");
@@ -49,11 +50,12 @@ $(document).ready(function () {
 
     createCharacters();
 
-    // this part would handle the entire "battle" set up sequence, such as dynamically displaying the player and current enemy's images
+    // this part handles the entire "battle" sequence, such as dynamically displaying the player and current enemy's images, the hp information, etc
 
     function Battle() {
-        this.totalDefeated = 0;
-        this.hero = null;
+        //this counter is used to know when to display the victory screen
+        this.totalDefeated = 0; 
+        this.hero = null; 
         this.enemy = null;
         this.setHero = function (character) {
             this.hero = character;
@@ -61,13 +63,14 @@ $(document).ready(function () {
         this.setEnemy = function (character) {
             this.enemy = character;
         };
-
+        //this is set up as a flag to use elsewhere
         this.isBattleOn = false;
         this.start = function () {
             this.displayCombatants();
             $("#attack-btn").on("click", this, this.heroAttack);
 
         };
+        //loads the images for the character they player chooses to play as and the image for they choose as an oppponent
         this.displayCombatants = function () {
             console.log("here");
             $('#hero-img').attr('src', this.hero.imgURL);
@@ -77,17 +80,19 @@ $(document).ready(function () {
                 this.toggleBattle();
             };
         };
-
+        //toggles the battleground div 
         this.toggleBattle = function () {
             this.isBattleOn = !this.isBattleOn;
             $('#battleground').toggleClass("hidden");
         };
 
         this.heroAttack = function (event) {
+            //calls in event and sets it to a new var because otherwise I was having a million issues with scoping 
             var thisBattle = event.data;
             thisBattle.hero.attack(thisBattle.enemy, false);
             thisBattle.displayHp();
             thisBattle.isBattleOver();
+            // logic for setting the atk value for the player
             if (thisBattle.hero.atk <= 26) {
             thisBattle.hero.atk = thisBattle.hero.atk + 2;
             }
@@ -96,14 +101,14 @@ $(document).ready(function () {
             };
 
         };
-
+        // updates the hp values and renders them 
         this.displayHp = function () {
             console.log("hello displayHp")
             $('#hero-hp').text(this.hero.hp);
             $('#enemy-hp').text(this.enemy.hp);
 
         };
-
+        // checks to see if the battle is over, resets everything, and prevents user from attacking while there is no battle
         this.isBattleOver = function () {
             if (this.hero.isDefeated) {
                 alert("YOU HAVE DIED. YOU ARE EXTREMELY DEAD. SORRY!");
@@ -115,11 +120,14 @@ $(document).ready(function () {
             }
 
             else if (this.enemy.isDefeated) {
+             // I think the healing mechanic is more fun than the atk going up but ¯\_(ツ)_/¯   
              //   alert("Congrats! You defeated the enemy! The Force renews your strength...");
              //   this.hero.hp = this.hero.hp + 50;
                 this.totalDefeated++;
                 
                 this.clearEnemy();
+
+                // switch statement to hide enemy image/button after they are defeated to more easily keep track of remaining opponents
                 switch(this.enemy.name) {
                     case "Darth Vader": 
                     $("img#vader-top-img").toggleClass("hidden");
