@@ -35,10 +35,10 @@ $(document).ready(function () {
     }
     // for some reason I can't get the name and imgURL to pass through. they come up as empty strings.
     var createCharacters = function () {
-        rey = new Character(120, 10, 7, "Rey", "rey.jpg");
-        kylo = new Character(100, 11, 9, "Kylo Ren", "kyloRen.jpg");
-        maul = new Character(60, 20, 15, "Darth Maul", "darthMaul.png");
-        vader = new Character(80, 18, 10, "Darth Vader", "vader.jpg");
+        rey = new Character(120, 10, 5, "Rey", "rey.jpg");
+        kylo = new Character(100, 11, 7, "Kylo Ren", "kyloRen.jpg");
+        maul = new Character(60, 20, 13, "Darth Maul", "darthMaul.png");
+        vader = new Character(80, 18, 7, "Darth Vader", "vader.jpg");
     };
 
 
@@ -52,6 +52,7 @@ $(document).ready(function () {
     // this part would handle the entire "battle" set up sequence, such as dynamically displaying the player and current enemy's images
 
     function Battle() {
+        this.totalDefeated = 0;
         this.hero = null;
         this.enemy = null;
         this.setHero = function (character) {
@@ -60,6 +61,8 @@ $(document).ready(function () {
         this.setEnemy = function (character) {
             this.enemy = character;
         };
+
+        this.isBattleOn = false;
         this.start = function () {
             this.displayCombatants();
             $("#attack-btn").on("click", this, this.heroAttack);
@@ -70,9 +73,13 @@ $(document).ready(function () {
             $('#hero-img').attr('src', this.hero.imgURL);
             $('#enemy-img').attr('src', this.enemy.imgURL);
             this.displayHp();
-            this.toggleBattle();
+            if (!this.isBattleOn) {
+                this.toggleBattle();
+            };
         };
+
         this.toggleBattle = function () {
+            this.isBattleOn = !this.isBattleOn;
             $('#battleground').toggleClass("hidden");
         };
 
@@ -102,10 +109,36 @@ $(document).ready(function () {
             }
 
             else if (this.enemy.isDefeated) {
-                alert("Congrats! You defeated the enemy!");
-                this.enemy = null;
+                alert("Congrats! You defeated the enemy! The Force renews your strength...");
+                this.hero.hp = this.hero.hp + 50;
+                this.totalDefeated++;
+                
                 this.clearEnemy();
+                switch(this.enemy.name) {
+                    case "Darth Vader": 
+                    $("img#vader-top-img").toggleClass("hidden");
+                    $("#vader-btn").toggleClass("hidden");
+                    break;
 
+                    case "Kylo Ren": 
+                    $("img#kylo-top-img").toggleClass("hidden");
+                    $("#kylo-btn").toggleClass("hidden");
+                    break;
+
+                    case "Rey": 
+                    $("img#rey-top-img").toggleClass("hidden");
+                    $("#rey-btn").toggleClass("hidden");
+                    break;
+
+                    case "Darth Maul": 
+                    $("img#maul-top-img").toggleClass("hidden");
+                    $("#maul-btn").toggleClass("hidden");
+                };
+                this.enemy = null;
+                if (this.totalDefeated == 3){
+                    alert("You won the game! You murderer. Think about what you've done.");
+                    location.reload();
+                }
             }
         };
 
