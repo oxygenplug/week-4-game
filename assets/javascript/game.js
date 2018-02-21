@@ -28,7 +28,6 @@ $(document).ready(function () {
             if (this.hp <= 0) {
                 this.hp = 0;
                 this.isDefeated = true;
-                console.log("defeated bitch");
 
             }
 
@@ -103,7 +102,6 @@ $(document).ready(function () {
         };
         // updates the hp values and renders them 
         this.displayHp = function () {
-            console.log("hello displayHp")
             $('#hero-hp').text(this.hero.hp);
             $('#enemy-hp').text(this.enemy.hp);
 
@@ -171,7 +169,6 @@ $(document).ready(function () {
     $("#rey-btn").on("click", function () {
         if (!battle.hero) {
             battle.setHero(rey);
-            console.log(battle.hero);
         }
         else {
             battle.setEnemy(rey);
