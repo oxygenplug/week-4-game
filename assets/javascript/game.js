@@ -35,10 +35,10 @@ $(document).ready(function () {
     }
     // for some reason I can't get the name and imgURL to pass through. they come up as empty strings.
     var createCharacters = function () {
-        rey = new Character(120, 10, 5, "Rey", "rey.jpg");
-        kylo = new Character(100, 11, 7, "Kylo Ren", "kyloRen.jpg");
-        maul = new Character(60, 20, 13, "Darth Maul", "darthMaul.png");
-        vader = new Character(80, 18, 7, "Darth Vader", "vader.jpg");
+        rey = new Character(130, 10, 4, "Rey", "rey.jpg");
+        kylo = new Character(110, 11, 6, "Kylo Ren", "kyloRen.jpg");
+        maul = new Character(70, 20, 12, "Darth Maul", "darthMaul.png");
+        vader = new Character(90, 18, 7, "Darth Vader", "vader.jpg");
     };
 
 
@@ -88,6 +88,12 @@ $(document).ready(function () {
             thisBattle.hero.attack(thisBattle.enemy, false);
             thisBattle.displayHp();
             thisBattle.isBattleOver();
+            if (thisBattle.hero.atk <= 26) {
+            thisBattle.hero.atk = thisBattle.hero.atk + 2;
+            }
+            else if (thisBattle.hero.atk > 26) {
+                thisBattle.hero.atk = thisBattle.hero.atk - 1;
+            };
 
         };
 
@@ -109,8 +115,8 @@ $(document).ready(function () {
             }
 
             else if (this.enemy.isDefeated) {
-                alert("Congrats! You defeated the enemy! The Force renews your strength...");
-                this.hero.hp = this.hero.hp + 50;
+             //   alert("Congrats! You defeated the enemy! The Force renews your strength...");
+             //   this.hero.hp = this.hero.hp + 50;
                 this.totalDefeated++;
                 
                 this.clearEnemy();
